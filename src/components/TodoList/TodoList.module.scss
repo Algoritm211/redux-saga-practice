@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+
+$main-todos-color: #5041b2;
+
+.todoList {
+  margin: 15px auto;
+  min-width: 320px;
+  max-width: 500px;
+}
+
+.todoContainer {
+  min-width: 320px;
+  max-width: 500px;
+  height: 75px;
+  font-size: 20px;
+  display: flex;
+  border-radius: 5px;
+  border: 2px solid $main-todos-color;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.todoTitle {
+  height: 100%;
+  overflow: scroll;
+
+  p {
+    margin: 0.5em;
+  }
+}
+
+.todoPanel {
+  display: flex;
+}
+
+@mixin todoAction($color) {
+  border: 2px solid $color;
+  color: $color;
+  &:hover {
+    background: $color;
+    color: white;
+  }
+}
+
+.todoAction {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 25px;
+  transition: all 0.5s ease;
+  font-size: 19px;
+  width: 30px;
+  height: 35px;
+  text-align: center;
+
+  &.delete {
+    @include todoAction(red)
+  }
+
+  &.completed {
+    @include todoAction(green)
+  }
+
+  &.uncompleted {
+    @include todoAction(#751f1f)
+  }
+}
+
+.sortButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  button {
+    background-color: transparent;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid $main-todos-color;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    transition: all 0.5s ease;
+
+    &:hover {
+      background-color: $main-todos-color;
+      color: white;
+    }
+  }
+}
+
+
+.completedTodos {
+  margin-right: 40px;
+  text-align: center;
+
+  span {
+    font-family: 'Coda Caption', sans-serif;
+  }
+}
